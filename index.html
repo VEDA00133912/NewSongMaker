@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>太鼓の達人 新曲告知画像メーカー</title>
+    <meta name="description" content="太鼓の達人の新曲告知画像メーカーです🥁">
+    <meta name="keywords" content="太鼓の達人">
+    <meta name="author" content="りょう">
+    <meta name="theme-color" content="#f34728">
+    <link rel="icon" href="./images/meta/favicon.png" type="image/png"/>
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta property="og:title" content="太鼓の達人 新曲告知画像メーカー">
+    <meta property="og:description" content="太鼓の達人の新曲告知画像メーカーです🥁">
+    <meta property="og:image" content="https://veda00133912.github.io/NewSongMaker/images/meta/img.png">
+    <meta property="og:url" content="https://veda00133912.github.io/NewSongMaker/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="太鼓の達人新曲告知画像メーカー">
+    <meta name="twitter:description" content="太鼓の達人の新曲告知を自由に作成できるツールです🥁">
+    <meta name="twitter:image" content="https://veda00133912.github.io/NewSongMaker/images/meta/img.png">
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1><span class="mobile-break">太鼓の達人</span>新曲告知メーカー</h1>
+      <div class="social-icons">
+        <a href="https://x.com/ryo_001339" target="_blank" aria-label="Twitter">
+          <img src="./images/meta/twitter.png" alt="Twitter" />
+        </a>
+        <a href="https://discord.gg/eDv32hq2pv" target="_blank" aria-label="Discord">
+          <img src="./images/meta/discord.png" alt="Discord" />
+        </a>
+        <a href="https://youtube.com/@00139-ryo" target="_blank" aria-label="YouTube">
+          <img src="./images/meta/youtube.png" alt="YouTube" />
+        </a>
+        <a href="https://github.com/VEDA00133912/TitleMaker/" target="_blank" aria-label="GitHub">
+          <img src="./images/meta/github.png" alt="GitHub" />
+        </a>
+      </div>
+    </header>
+
+    <div class="container">
+      <canvas id="taikoCanvas" width="960" height="538"></canvas>
+
+      <div class="controls">
+        <label for="mainText">曲名</label>
+        <input type="text" id="mainText" placeholder="ここに曲名をいれる" />
+
+        <label for="subText">アーティスト名</label>
+        <input type="text" id="subText" placeholder="ここにアーティスト名を入れる" />
+
+        <button onclick="generateImage()">画像を生成</button>
+        <button id="downloadButton" onclick="downloadImage()" disabled>画像を保存</button>
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; 2025 ryo_001339 All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
