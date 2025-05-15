@@ -76,8 +76,8 @@ function draw(mainText, subText) {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   ctx.drawImage(baseImage, 0, 0, canvas.width, canvas.height);
 
-  drawGradientStrokeText(mainText, canvas.width / 2, canvas.height / 2 - 5, 60, "#5d6cc0", "#1d257c");
-  drawGradientStrokeText(subText, canvas.width / 2, canvas.height / 2 + 80, 30, "#c42061", "#8b1554");
+  drawGradientStrokeText(mainText, canvas.width / 2, canvas.height / 2 - 5, 60, "#444481", "#272859");
+  drawGradientStrokeText(subText, canvas.width / 2, canvas.height / 2 + 80, 30, "#a4345d", "#6b355c");
 }
 
 function generateImage() {

@@ -26,7 +26,7 @@ body {
 }
 
 canvas {
-  max-width: 100%;
+  max-width: 90%;
   height: auto;
   display: block;
   margin: 0 auto;
@@ -97,19 +97,10 @@ header h1 {
   font-size: 32px;
   color: #000;
   margin: 0;
-  text-shadow:
-    -2px -2px 0 #fff,
-     0   -2px 0 #fff,
-     2px -2px 0 #fff,
-    -2px  0   0 #fff,
-     2px  0   0 #fff,
-    -2px  2px 0 #fff,
-     0    2px 0 #fff,
-     2px  2px 0 #fff,
-    -1px -1px 0 #fff,
-     1px -1px 0 #fff,
-    -1px  1px 0 #fff,
-     1px  1px 0 #fff;
+  filter: drop-shadow(1px 1px 0 #fff)
+          drop-shadow(-1px 1px 0 #fff)
+          drop-shadow(1px -1px 0 #fff)
+          drop-shadow(-1px -1px 0 #fff);
 }
 
 .social-icons {
