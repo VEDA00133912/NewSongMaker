@@ -40,7 +40,7 @@ function drawGradientStrokeText(text, x, y, fontSize, colorTop, colorBottom, max
   ctx.font = `${fontSize}px ${fontFamily}`;
   ctx.textBaseline = "middle";
   ctx.textAlign = "center";
-  ctx.lineJoin = "miter";
+  ctx.lineJoin = "round";
   ctx.miterLimit = 1;
 
   const lines = text.split('\n');
