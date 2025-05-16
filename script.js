@@ -17,7 +17,10 @@ const fontLoadPromise = Promise.all(
         document.fonts.add(loaded);
         return name;
       })
-      .catch(() => null)
+      .catch((err) => {
+        console.warn(`フォント ${name} の読み込みに失敗しました:`, err);
+        return null;
+      })
   )
 ).then(loadedFonts => {
   fontsAvailable = loadedFonts.filter(name => name !== null);
@@ -68,15 +71,16 @@ function drawGradientStrokeText(text, x, y, fontSize, colorTop, colorBottom, max
   ctx.font = `${fontSize}px ${fontFamily}`;
   ctx.textBaseline = 'middle';
   ctx.textAlign = 'center';
-  ctx.miterLimit = 1;
+  ctx.lineCap = 'round';
+  ctx.miterLimit = 2;
 
   const lines = text.split('\n');
   const lineSpacing = fontSize + 12;
 
-  const gradient = createVerticalGradient(0, fontSize, colorTop, colorBottom);
-
   lines.forEach((lineText, i) => {
-    drawTextLine(lineText, x, y + i * lineSpacing, fontSize, gradient, maxWidth);
+    const lineY = y + i * lineSpacing;
+    const gradient = createVerticalGradient(lineY, fontSize, colorTop, colorBottom);
+    drawTextLine(lineText, x, lineY, fontSize, gradient, maxWidth);
   });
 }
 
@@ -104,14 +108,16 @@ function generateImage() {
   }
 
   fontLoadPromise.then(() => {
-    if (baseImage.complete && baseImageLoaded) {
+    if (baseImageLoaded) {
       draw(mainText, subText);
       downloadButton.disabled = false;
     } else {
       baseImage.onload = () => {
-        baseImageLoaded = true;
-        draw(mainText, subText);
-        downloadButton.disabled = false;
+        if (!baseImageLoaded) {
+          baseImageLoaded = true;
+          draw(mainText, subText);
+          downloadButton.disabled = false;
+        }
       };
     }
   }).catch(() => {
